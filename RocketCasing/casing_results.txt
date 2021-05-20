@@ -1,0 +1,13 @@
+
+14/05/2021 22:33
+Material: policloreto de vinila
+Características do material: {'Fty': 41, 'Ftu': 51, 'E': 2898, 'v': 0.41}
+Razão da força do material: b= 0.803921568627451
+Fator de ruptura: B= 1.37260894551396
+Design de pressão: Pd= 16400.000000000004
+Pressão de ruptura: Pu= 45021.57341285789
+Fator de segurança de ruptura: Su= 2.7452178910279197
+Variação no diâmetro do invólucro: dD= 2.8118530020703945e-06
+Variação na circunferência do invólucro: dc= 8.833696734278756e-06
+--------------------------------
+ 
