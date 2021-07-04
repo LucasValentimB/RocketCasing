@@ -37,12 +37,12 @@ setup(
     # For a discussion on single-sourcing the version across setup.py and the
     # project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='1.2.6',  # Required
+    version='1.3.18',  # Required
 
     # This is a one-line description or tagline of what your project does. This
     # corresponds to the "Summary" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#summary
-    description='Programa que converte a planilha casing de Richard Nakka em módulo para cálculo de pressão de ruptura do invólucro de um fogeute',  # Optional
+    description='Programa baseado na planilha Casing de Richard Nakka para cálculo e design de pressão de ruptura de um foguete de motor sólido. Program based on Richard Nakka spreadsheet for design and burst pressure for solid rocket motor', # Optional
 
     # This is an optional longer description of your project that represents
     # the body of text which users will see when they visit PyPI.
@@ -70,7 +70,7 @@ setup(
     #
     # This field corresponds to the "Home-Page" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#home-page-optional
-    #url='https://github.com/pypa/sampleproject',  # Optional
+    url='https://github.com/LucasValentimB/RocketCasing',  # Optional
 
     # This should be your name or the name of the organization which owns the
     # project.
@@ -88,7 +88,7 @@ setup(
         #   3 - Alpha
         #   4 - Beta
         #   5 - Production/Stable
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
 
         # Indicate who your project is intended for
         'Intended Audience :: Developers',
@@ -165,5 +165,5 @@ setup(
         'test': ['coverage'],
     },
     
-    data_file=[('RocketCasing',['dados','casing_results.txt'])],
+    #data_file=[('RocketCasing',['dados','casing_results.txt'])],
 )

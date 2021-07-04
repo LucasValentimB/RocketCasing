@@ -1,11 +1,10 @@
 
 
 🚀 RocketCasing
-
 Módulo em python da planilha casing de Richard Nakka
 Feito por Lucas Valentim - UFABC Rocket Design
 
-Tabela de conteúdos:
+Tabela de conteúdos
 Sobre o projeto
 Funcionalidades
 Como executar o projeto
@@ -13,7 +12,6 @@ Pré-requisitos
 Instalando
 Como contribuir no projeto
 Licença
-
 Sobre o projeto:
 
 O projeto de iniciação científica modo pesquisando desde o primeiro dia (IC-PDPD) teve como objetivo a construção de um módulo em linguagem python das planilhas de Richard Nakka, foguetemodelista amador que constroi e junta dados desde a década de 70.

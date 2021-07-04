@@ -9,16 +9,16 @@ def casing():
     #Chama os pacotes usados no programa
     import math
    # import matplotlib.pyplot  #Necessário somente caso for construir o gráfico, entretanto o gráfico não é necessário
-    from RocketCasing import materials
-   # import materials
+   # from RocketCasing import materials #teste
+    import materials
     from datetime import datetime
 
 #Abertura do programa
     print("--Casing--")
 #Solicitação da inserção de dados
     print ("---Dimensões do invólucro e Fatores de design---")
-    Do= float(input('Insira o diâmetro externo em mm: '))
-    t= float(input('Insira a espessura da parede em mm: '))
+    Do= float(input('Insira o diâmetro externo (mm): '))
+    t= float(input('Insira a espessura da parede (mm): '))
 
 #Opção para escolher a entrada e, consequentemente, a saída
     print(" ")
@@ -45,36 +45,36 @@ def casing():
     print("-------------------------")
     print("Material: ", prop)
     print("Características do material: ", '{}'.format(p))
-    b=p['Fty']/p['Ftu']
+    b=p['Fty']/p['Ftu'] if p['Fty']!=0 or p['Ftu']!=0 else 0
     print("Razão da força do material: b= ",'{:.5f}'.format(b))
-    B=(9.5833*b**4)+(-33.528*b**3)+(44.929*b**2)+(-28.479*b)+8.6475
+    B=(9.5833*b**4)+(-33.528*b**3)+(44.929*b**2)+(-28.479*b)+8.6475 if b!=0 else 0
     print("Fator de ruptura: B= ",'{:.5f}'.format(B))
  
     if op=="0":
         print(" ")
         print ("---Pressões de design e ruptura---")
-        Pd=(2*(t*p['Fty']*1000)/(Do*Sd))#*6.8947
+        Pd=(2*(t*p['Fty']*1000)/(Do*Sd)) if Do!=0 or Sd!=0 else 0
         print("Design de pressão: Pd= ",'{:.5f}'.format(Pd)," kPa")
-        Pu=(2*B*t*p['Fty']*1000/Do)#*6.8947
+        Pu=(2*B*t*p['Fty']*1000/Do) if Do!=0 else 0
         print("Pressão de ruptura: Pu= ",'{:.5f}'.format(Pu), " kPa")
-        Su=Pu/Pd
+        Su=Pu/Pd if Pd!=0 else 0
         print("Fator de segurança de ruptura: Su= ",'{:.5f}'.format(Su))
     elif op=="1":
         print(" ")
         print ("---Pressões de design e ruptura---")
-        Pu=(2*B*t*p['Fty']*1000/Do)#*6.8947
+        Pu=(2*B*t*p['Fty']*1000/Do) if Do!=0 else 0
         print("Pressão de ruptura: Pu= ",'{:.5f}'.format(Pu), " kPa")
-        Pd=Pu/Su
+        Pd=Pu/Su if Su!=0 else 0
         print("Design de pressão: Pd= ",'{:.5f}'.format(Pd)," kPa")
-        Sd=(2*(t*p['Fty']*1000)/(Do*Pd))
+        Sd=(2*(t*p['Fty']*1000)/(Do*Pd)) if Do!=0 or Pd!=0 else 0 #corrigir divisão por 0
         print("Fator de design de segurança: Sd= ",'{:.5f}'.format(Sd))
     
     print (" ")
     print(" ")
     print ("---Deformação elástica sobre pressão---")
-    dD=(2*Pd*(Do/2)**2/p['E']/10**6/t*(1-p['v']/2))#*0.0254
+    dD=(2*Pd*(Do/2)**2/p['E']/10**6/t*(1-p['v']/2)) if p['E']!=0 or p['v']!=0 else 0
     print("Variação do diâmetro do invólucro: dD= ",'{:.6f}'.format(dD)," m")
-    dc=((dD*math.pi))#*0.0254
+    dc=((dD*math.pi))
     print("Variação da circunferência do invólucro: dc= ",'{:.6f}'.format(dc)," m")
 
 #Construção gráfico (de acordo com a planilha do Nakka)
@@ -86,6 +86,7 @@ def casing():
     matplotlib.pyplot.axis([0.5, 1, 1, 2.2]) # [xmin, xmax, ymin, ymax]
     matplotlib.pyplot.show()
     '''
+    #o gráfico apresenta uma curva para o fator de explosão para cilindros pressurizados. Uma curva fixa que apresenta os melhores valores.
  
 #construção do arquivo em txt com os valores
     data=datetime.now()
@@ -109,9 +110,11 @@ def casing():
     arquivo.write('\n')
     arquivo.write('Design de pressão: Pd= ')
     arquivo.write('{}'.format(Pd))
+    arquivo.write(' kPa')
     arquivo.write('\n')
     arquivo.write('Pressão de ruptura: Pu= ')
     arquivo.write('{}'.format(Pu))
+    arquivo.write(' kPa')
     arquivo.write('\n')
     if op=="0":
         arquivo.write('Fator de segurança de ruptura: Su= ')
@@ -124,13 +127,16 @@ def casing():
     arquivo.write('Variação no diâmetro do invólucro: dD= ')
     arquivo.write('{}'.format(dD))
     arquivo.write('\n')
+    arquivo.write(' m')
     arquivo.write('Variação na circunferência do invólucro: dc= ')
     arquivo.write('{}'.format(dc))
+    arquivo.write(' m')
     arquivo.write('\n')
     arquivo.write('--------------------------------')
     arquivo.write('\n')
     arquivo.write(' ')
     arquivo.close()
 
-#Chamando a definição que o código foi colocado    
+
 casing()
+

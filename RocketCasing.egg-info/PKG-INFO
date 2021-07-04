@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
 Name: RocketCasing
-Version: 1.2.6
-Summary: Programa que converte a planilha casing de Richard Nakka em módulo para cálculo de pressão de ruptura do invólucro de um fogeute
-Home-page: UNKNOWN
+Version: 1.3.18
+Summary: Programa baseado na planilha Casing de Richard Nakka para cálculo e design de pressão de ruptura de um foguete de motor sólido. Program based on Richard Nakka spreadsheet for design and burst pressure for solid rocket motor
+Home-page: https://github.com/LucasValentimB/RocketCasing
 Author: Lucas Valentim Câmara
 Author-email: lucasbcamara@gmail.com
 License: UNKNOWN
@@ -67,7 +67,7 @@ Description:
         Este projeto esta sobe a licença [MIT](./LICENSE).
 Keywords: casing,foguete,SRM,invólucro,pressão,Nakka
 Platform: UNKNOWN
-Classifier: Development Status :: 3 - Alpha
+Classifier: Development Status :: 4 - Beta
 Classifier: Intended Audience :: Developers
 Classifier: Intended Audience :: Other Audience
 Classifier: Topic :: Software Development :: Build Tools
